@@ -1,0 +1,16 @@
+Subject: IMMEDIATE ACTION REQUIRED: Security Alert - Unauthorized Login Detected
+
+Dear User,
+
+We detected a suspicious login attempt on your account from an unrecognized device in St. Petersburg, Russia (IP: 95.104.22.81) on July 10, 2026 at 11:45 AM.
+
+If this was not you, please immediately update your credentials and verify your identity to prevent permanent suspension of your billing services. 
+
+To secure your account and cancel this request, please click the secure link below and follow the security questions:
+
+hxxps://verify.billing-chase-update.net/login?ref=security-check
+
+If you do not complete this verification within 24 hours, our automated defense systems will lock your account and list your assets as suspended.
+
+Sincerely,
+Chase Security Operations & Identity Protection Desk

