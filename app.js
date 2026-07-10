@@ -6,8 +6,9 @@
 const markedParser = window.marked ? window.marked : { parse: (x) => x };
 
 // State Management
+const FALLBACK_KEY = 'AQ.Ab8RN6LbxF5tieiJbatkREYOmQimF8CQ6Mqh-QcZVmPCeAjEtw';
 const STATE = {
-  apiKey: localStorage.getItem('aegis_gemini_key') || '',
+  apiKey: localStorage.getItem('aegis_gemini_key') || FALLBACK_KEY,
   activeView: 'chat-view',
   chatHistory: [
     {
