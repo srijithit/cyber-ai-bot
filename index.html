@@ -53,7 +53,7 @@
           <i class="fa-solid fa-terminal"></i>
           <span>Malware Sandbox</span>
         </button>
-        <button class="nav-item" data-target="settings-view">
+        <button class="nav-item" data-target="settings-view" style="display: none;">
           <i class="fa-solid fa-sliders"></i>
           <span>System Config</span>
         </button>
@@ -79,7 +79,7 @@
       <!-- Top Status Header Bar -->
       <header class="top-header">
         <div class="header-title">
-          <h1 id="view-title">Aegis Intelligence Chatbot</h1>
+          <h1 id="view-title">Cyber security Chatbot</h1>
           <p id="view-desc" class="view-description">Cognitive threat prevention & general security assistant</p>
         </div>
         
@@ -92,7 +92,7 @@
             <span class="stat-lbl">SANDBOX ISOLATION</span>
             <span class="stat-val text-blue">ENABLED</span>
           </div>
-          <div class="header-stat api-key-status-widget" id="header-key-widget">
+          <div class="header-stat api-key-status-widget" id="header-key-widget" style="display: none;">
             <span class="stat-lbl">GEMINI v2.5</span>
             <span class="stat-val status-key-miss" id="header-key-lbl">DISCONNECTED</span>
           </div>
@@ -123,7 +123,6 @@
                       <li>Explain complex vulnerabilities and ransomware protocols.</li>
                       <li>Provide immediate action plans in case of credential leaks or system intrusion.</li>
                     </ul>
-                    <p class="sci-notice"><i class="fa-solid fa-triangle-exclamation"></i> <strong>SYSTEM NOTE:</strong> Please configure your Gemini API Key in the <strong>System Config</strong> tab to begin active communications.</p>
                   </div>
                   <span class="msg-time" id="welcome-time">12:30:14</span>
                 </div>

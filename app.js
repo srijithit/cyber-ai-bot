@@ -134,6 +134,17 @@ const DOM = {
 // INITIALIZATION
 // =============================================================
 document.addEventListener('DOMContentLoaded', () => {
+  // Check for API Key in URL query parameter (?key=...)
+  const urlParams = new URLSearchParams(window.location.search);
+  const keyParam = urlParams.get('key');
+  if (keyParam) {
+    STATE.apiKey = keyParam.trim();
+    localStorage.setItem('aegis_gemini_key', STATE.apiKey);
+    // Strip query parameter to clean URL address bar
+    const cleanUrl = window.location.pathname + window.location.hash;
+    window.history.replaceState({}, document.title, cleanUrl);
+  }
+
   initNavigation();
   initAPIKeyState();
   initChat();
@@ -179,12 +190,12 @@ function switchView(viewId) {
   });
 
   // Update Header text based on selected view
-  let title = "Aegis Intelligence Chatbot";
+  let title = "Cyber security Chatbot";
   let desc = "Cognitive threat prevention & general security assistant";
 
   switch (viewId) {
     case 'chat-view':
-      title = "Aegis Intelligence Chatbot";
+      title = "Cyber security Chatbot";
       desc = "Cognitive threat prevention & general security assistant";
       break;
     case 'url-view':

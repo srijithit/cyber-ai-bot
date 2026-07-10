@@ -294,15 +294,23 @@ body {
 
 /* Top Header Bar */
 .top-header {
-  height: var(--header-height);
+  height: auto;
+  min-height: var(--header-height);
   background-color: rgba(255, 255, 255, 0.5);
   border-bottom: 1px solid var(--border-glass);
   backdrop-filter: blur(8px);
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  padding: 0 40px;
+  justify-content: center;
+  text-align: center;
+  padding: 15px 40px;
+  gap: 12px;
   z-index: 9;
+}
+
+.header-title {
+  text-align: center;
 }
 
 .header-title h1 {
@@ -365,7 +373,7 @@ body {
 
 .view-panel {
   display: none;
-  height: 100%;
+  min-height: 100%;
   animation: view-fade-in 0.4s ease forwards;
 }
 
@@ -897,13 +905,13 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 30px;
-  height: 100%;
+  min-height: 100%;
 }
 
 .results-pane {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  min-height: 100%;
 }
 
 .lexical-indicators {
